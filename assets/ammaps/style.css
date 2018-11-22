@@ -1,0 +1,19 @@
+#chartdiv {
+	width: 100%;
+	height: 500px;
+}
+.ammapDescriptionWindow {
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Verdana;
+  font-size: 10px;
+  opacity: 0.95;
+  overflow: auto;
+}
+
+.ammapDescriptionTitle {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+}																		
