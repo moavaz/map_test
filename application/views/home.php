@@ -6,7 +6,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-4">
+			<div class="col-md-6 col-md-offset-2">
 				<h1>
 					maps and people
 					<!-- HTML -->
