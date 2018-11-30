@@ -11,5 +11,14 @@ class HomeModel extends CI_Model{
 			return false;
 		}
 	}
+	function getAllCustomers(){
+		$query = $this->db->query("select * from customer");
+		if ($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>

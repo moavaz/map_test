@@ -9,8 +9,12 @@ class HomeController extends CI_Controller{
 		$data['sub_title'] = "Login Page";
 
 		// $data['error_message'] = '<strong>Warning !</strong> An error has occurred.';
-		
+		// $data['map'] = $this->HomeModel->getAllCustomers(); 
 		$this->load->view('home',$data);
+	}
+	public function getAllCustomers(){
+		$data = $this->HomeModel->getAllCustomers(); 
+		echo json_encode($data);
 	}
 	public function createCustomer(){
 		$data = array(
