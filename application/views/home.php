@@ -17,9 +17,9 @@
 				<h1>
 					<button type="button" id="ct-btn" class="btn btn-sm btn-primary" data-toggle="modal">Add new customer</button>
 				</h1>
-			</div>					
+				<div id="chartdiv"></div>
+			</div>	
 		</div>
-		<div id="chartdiv"></div>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,17 +78,34 @@
 				// contentType:false,
 				dataType: 'json',
 				success: function(data)
-				{  
-					console.log(data[0]);
+				{  	
+					var getUrl = window.location.origin
+					console.log(data);
 					// maps script start here
-					var descriptionBurgundy = 'Burgundy (French: Bourgogne, IPA: [buʁ.ɡɔɲ]) is one of the 27 regions of France. Burgundy includes the following four departements: Côte-d\'Or, Saône-et-Loire, Yonne and Nièvre.<br /><br /><b>Coat of arms</b><br /><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Blason_fr_Bourgogne.svg/545px-Blason_fr_Bourgogne.svg.png" style="width: 100px;" /><br /><br /><b>';
+					// var descriptionBurgundy = `<strong>Customer Name: </strong> ${data[0]['customer_name']} <br> <strong>Monthly charges: </strong>${data[0]['monthly_charges']} <br> <strong>Sms charges: </strong>${data[0]['sms_charges']} <br> <strong>Server charges: </strong>${data[0]['server_charges']} <br> <img src="${getUrl}/map_test/uploads/${data[0]["customer_pic"]}" width="150px" height="100px" />` ;
 
- var descriptionBrittany = 'Brittany (French: Bretagne [bʁə.taɲ] ; Breton: Breizh, pronounced [brɛjs]; Gallo: Bertaèyn) is a cultural region in the north-west of France.<br /><br /><b>Coat of arms</b><br /><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/COA_fr_BRE.svg/545px-COA_fr_BRE.svg.png" style="width: 100px;" /><br /><br /><b>Scenerey</b><br /><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bretagne_Finistere_PointeduRaz15119.jpg/220px-Bretagne_Finistere_PointeduRaz15119.jpg" /><br />';
+					// var descriptionBrittany = 'Brittany (French: Bretagne [bʁə.taɲ] ; Breton: Breizh, pronounced [brɛjs]; Gallo: Bertaèyn) is a cultural region in the north-west of France.<br /><br /><b>Coat of arms</b><br /><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/COA_fr_BRE.svg/545px-COA_fr_BRE.svg.png" style="width: 100px;" /><br /><br /><b>Scenerey</b><br /><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bretagne_Finistere_PointeduRaz15119.jpg/220px-Bretagne_Finistere_PointeduRaz15119.jpg" /><br />';
 
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					var images=[];
 /**
  * Define SVG path for target icon
  */
- var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+
+ for (var i = 0; i < data.length; i++) {
+ 	images[i] = {
+ 		"svgPath": targetSVG,
+ 			// "zoomLevel": 5,
+ 			"scale": 0.5,
+ 			"title": "remainings",
+ 			"latitude": 31.582045+i,
+ 			"longitude": 74.329376	+i,
+ 			"description": `<strong>Customer Name: </strong> ${data[i]['customer_name']} <br> <strong>Monthly charges: </strong>${data[i]['monthly_charges']} <br> <strong>Sms charges: </strong>${data[i]['sms_charges']} <br> <strong>Server charges: </strong>${data[i]['server_charges']} <br> <img src="${getUrl}/map_test/uploads/${data[i]["customer_pic"]}" width="150px" height="100px" />`,
+ 			"color" : "red"
+
+ 		};
+ 	}
+
 
 /**
  * Create the map
@@ -115,47 +132,29 @@
  		"unlistedAreasColor": "#15A892",
  		"outlineThickness": 0.1
  	},
+
  	"dataProvider": {
  		"map": "worldLow",
-
- 		"images": [ {
- 			"svgPath": targetSVG,
- 			// "zoomLevel": 5,
- 			"scale": 0.5,
- 			"title": "remainings",
- 			"latitude": 48.2092,
- 			"longitude": 16.3728,
- 			"description": descriptionBrittany,
- 			"color" : "red"
-
- 		}, {
- 			"svgPath": targetSVG,
- 			// "zoomLevel": 5,
- 			"scale": 0.5,
- 			"title": "paid",
- 			"latitude": 53.9678,
- 			"longitude": 27.5766,
- 			"description": descriptionBurgundy
-
- 		}, {
- 			"svgPath": targetSVG,
- 			// "zoomLevel": 5,
- 			"scale": 0.5,
- 			"title": "paid",
- 			"latitude": 50.8371,
- 			"longitude": 4.3676,
- 			"description": descriptionBurgundy
- 		} ]
+ 		"images": images,
+ 		"areas": [{
+ 			"id": "PK",
+ 			"color": "green",
+ 			"autoZoom": true
+ 		}],
  	}
  	// "export": {
  	// 	"enabled": true
  	// }
  } );
  //maps script end here
-           }
+ var mapObject = map.getObjectById('PK');
+ map.clickMapObject(mapObject);
+}
+
            //success function end here
        });//ajax call end here
 		}); //jquery end here
+		// console.log(map);
 	</script>
 </body>
 </html>
