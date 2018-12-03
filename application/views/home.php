@@ -48,7 +48,7 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="col-md-5 col-form-label"><strong>Sale From Date</strong></label>
+												<label class="col-md-5 col-form-label"><strong>From Date</strong></label>
 												<div class="col-md-6">
 													<input name="from_date" id="from_date" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
 													<span class="help-block"></span>
@@ -57,7 +57,7 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="col-md-5 col-form-label"><strong>Sale To Date</strong></label>
+												<label class="col-md-5 col-form-label"><strong>To Date</strong></label>
 												<div class="col-md-6">
 													<input name="to_date" id="to_date" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
 													<span class="help-block"></span>
@@ -71,6 +71,7 @@
 							<table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="example" cellspacing="0" width="100%">
 								<thead>
 									<tr>
+										<th class="all">Customer Id</th>
 										<th class="all">Customer Name</th>
 										<th class="min-phone-l">Monthly charges</th>
 										<!-- <th class="desktop"> Project Type</th>  -->

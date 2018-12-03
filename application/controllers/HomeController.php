@@ -67,7 +67,7 @@ class HomeController extends CI_Controller{
 		foreach ($list as $project) {
 			$no++;
 			$row = array();
-
+			$row[]= $project['customer_id']; 
 			$row[]= $project['customer_name']; 
 			$row[]= $project['monthly_charges'];
 			$row[]= $project['sms_charges'];
