@@ -12,16 +12,17 @@ class HomeController extends CI_Controller{
 		// $data['map'] = $this->HomeModel->getAllCustomers(); 
 		$this->load->view('home',$data);
 	}
-	public function getAllCustomers(){
+	public function getAllCustomers(){  								// get all customer for map
 		$data = $this->HomeModel->getAllCustomers(); 
 		echo json_encode($data);
 	}
-	public function createCustomer(){
+	public function createCustomer(){   								 //create customer 
 		$data = array(
 			'customer_name'=> $this->input->post('ct_name'),
 			'monthly_charges'=> $this->input->post('ct_monthly'),
 			'sms_charges'=> $this->input->post('ct_sms'),
-			'server_charges'=> $this->input->post('ct_server')
+			'server_charges'=> $this->input->post('ct_server'),
+			'date' => date("Y-m-d")
 		);
 //Upload file...............................
 		$result = $this->do_upload('ct_image');
@@ -58,5 +59,29 @@ class HomeController extends CI_Controller{
 			return $data['file_name'] ;
 		}
 	}
+	public function getAllCustomersDatatables($from,$to){ 						//get all customers for datatables plugin 
+		$list = $this->HomeModel->getAllCustomersDatatables($from,$to); 
+		$data = array();
+
+		$no = 0;
+		foreach ($list as $project) {
+			$no++;
+			$row = array();
+
+			$row[]= $project['customer_name']; 
+			$row[]= $project['monthly_charges'];
+			$row[]= $project['sms_charges'];
+			$row[]= $project['server_charges'];
+			// $row[]=$project['first_name'].' '.$project['last_name'];
+
+			// $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Enroll" id="enroll" onclick="enroll('."'".$project['p_id']."'".')">Request for Documentation </a> ';
+			$data[] = $row;
+		}
+
+		$output = array(
+			"data" => $data,
+		);
+		echo json_encode($output);
+	} 
 }
 ?>

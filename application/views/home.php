@@ -19,60 +19,171 @@
 				</h1>
 				<div id="chartdiv"></div>
 			</div>	
+
+			<div class="col-md-6">	
+				<!-- BEGIN EXAMPLE TABLE PORTLET-->
+				<div class="portlet box green">
+					<div class="portlet-title">
+
+						<div class="actions">
+							<div class="btn-group">
+
+								<a class="btn btn-sm btn-primary"  id="search"><i class="glyphicon glyphicon-pencil"></i> Search</a>
+
+							</div>
+						</div>
+
+
+
+						<div class="caption">
+							<i class="fa fa-globe"></i>Customers </div>
+							<div class="tools"> </div>
+						</div>
+						<div class="portlet-body">
+
+							
+
+							<form id="date_form" class="form-horizontal" method="post">
+								<div class="form-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-md-5 col-form-label"><strong>Sale From Date</strong></label>
+												<div class="col-md-6">
+													<input name="from_date" id="from_date" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+													<span class="help-block"></span>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-md-5 col-form-label"><strong>Sale To Date</strong></label>
+												<div class="col-md-6">
+													<input name="to_date" id="to_date" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+													<span class="help-block"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="example" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										<th class="all">Customer Name</th>
+										<th class="min-phone-l">Monthly charges</th>
+										<!-- <th class="desktop"> Project Type</th>  -->
+										<th class="desktop">Sms charges</th>
+										<th class="desktop">Server charges </th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->    
+				</div>  
+			</div>
 		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title" id="exampleModalLabel">Add customer</h3>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="ct-form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
-						<div class="form-group">
-							<label for="ct_name">Customer Name</label>
-							<input type="text" class="form-control" id="ct_name" aria-describedby="emailHelp" placeholder="Enter customer name"
-							name="ct_name" required>
-						</div>
-						<div class="form-group">
-							<label for="ct_monthly">Monthly charges</label>
-							<input type="text" class="form-control" id="ct_monthly" aria-describedby="emailHelp" placeholder="Enter customer monthly charges" name="ct_monthly" required>
-						</div><div class="form-group">
-							<label for="ct_sms">Sms charges</label>
-							<input type="text" class="form-control" id="ct_sms" aria-describedby="emailHelp" placeholder="Enter customer sms charges" name="ct_sms" required>
-						</div><div class="form-group">
-							<label for="ct_server">Server charges</label>
-							<input type="text" class="form-control" id="ct_server" aria-describedby="emailHelp" placeholder="Enter customer server charges" name="ct_server" required>
-						</div>
-						<div class="form-group">
-							<label for="name">
-							Customer Picture</label>
-							<input type="file"  id="image" name="ct_image"  required >
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Save changes</button>
-						</div>
-					</form>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title" id="exampleModalLabel">Add customer</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="ct-form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="ct_name">Customer Name</label>
+								<input type="text" class="form-control" id="ct_name" aria-describedby="emailHelp" placeholder="Enter customer name"
+								name="ct_name" required>
+							</div>
+							<div class="form-group">
+								<label for="ct_monthly">Monthly charges</label>
+								<input type="text" class="form-control" id="ct_monthly" aria-describedby="emailHelp" placeholder="Enter customer monthly charges" name="ct_monthly" required>
+							</div><div class="form-group">
+								<label for="ct_sms">Sms charges</label>
+								<input type="text" class="form-control" id="ct_sms" aria-describedby="emailHelp" placeholder="Enter customer sms charges" name="ct_sms" required>
+							</div><div class="form-group">
+								<label for="ct_server">Server charges</label>
+								<input type="text" class="form-control" id="ct_server" aria-describedby="emailHelp" placeholder="Enter customer server charges" name="ct_server" required>
+							</div>
+							<div class="form-group">
+								<label for="name">
+								Customer Picture</label>
+								<input type="file"  id="image" name="ct_image"  required >
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Save changes</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php $this->load->view('layouts/common_js'); ?>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#ct-btn').click(function(){
+		<?php $this->load->view('layouts/common_js'); ?>
+		<script type="text/javascript">
+			var from_date = 'null';
+			var to_date = 'null';
+			$(document).ready(function(){  
+
+				function urlReload(){						//reload acording to date
+    // alert(encodeURI(cust))
+    table.ajax.url("<?php echo site_url('HomeController/getAllCustomersDatatables')?>/"+from_date+"/"+to_date).load();
+    var amount=0;
+    $('#table tbody tr td:nth-child(4)').each( function(){
+      //add item to array
+      if ($.isNumeric($(this).text())) {
+      	amount += parseInt($(this).text());
+      }
+  });
+    $("#total_amount").val(amount);
+}
+
+$("#search").on("click",function(){  			//search functions
+	from_date = 'null';
+	to_date = 'null';
+	if($("#from_date").val() != ''){
+		from_date = $("#from_date").val();
+	}
+	if($("#to_date").val() != ''){
+		to_date = $("#to_date").val();
+	}
+	if((from_date == 'null' && to_date != 'null') || (from_date != 'null' && to_date == 'null')){
+		alert("Please enter both Dates to search");
+	}else{
+		urlReload();
+	}
+});
+
+				$('.datepicker').datepicker({  						//datepicker intitalization 
+					autoclose: true,
+					format: "yyyy-mm-dd",
+					todayHighlight: true,
+					todayBtn: true,
+					todayHighlight: true,
+					setDate: new Date()
+
+				});
+			  							table = $('#example').DataTable({ 							//datatables intitalization 
+			  								"ajax": {
+			  									"url": "<?php echo site_url('HomeController/getAllCustomersDatatables')?>/"+from_date+"/"+to_date,
+			  									"type": "POST"
+			  								},
+			  							});
+				$('#ct-btn').click(function(){							// add new customer button
     $('#ct-form')[0].reset(); // reset form on modals
     $('#exampleModal').modal('show');
     $('#ct-form').attr('action', '<?php echo base_url();?>HomeController/createCustomer');
 });
-			$.ajax({
-				url: "<?php echo base_url(); ?>HomeController/getAllCustomers" , 
-				type: 'POST',
+				$.ajax({																//ajax call for customers to show in map				
+					url: "<?php echo base_url(); ?>HomeController/getAllCustomers" , 
+					type: 'POST',
 				// data: new FormData($('#'+formid)[0]),
 				// processData: false,
 				// contentType:false,
@@ -80,7 +191,7 @@
 				success: function(data)
 				{  	
 					var getUrl = window.location.origin
-					console.log(data);
+					// console.log(data);
 					// maps script start here
 					// var descriptionBurgundy = `<strong>Customer Name: </strong> ${data[0]['customer_name']} <br> <strong>Monthly charges: </strong>${data[0]['monthly_charges']} <br> <strong>Sms charges: </strong>${data[0]['sms_charges']} <br> <strong>Server charges: </strong>${data[0]['server_charges']} <br> <img src="${getUrl}/map_test/uploads/${data[0]["customer_pic"]}" width="150px" height="100px" />` ;
 
@@ -149,12 +260,17 @@
  //maps script end here
  var mapObject = map.getObjectById('PK');
  map.clickMapObject(mapObject);
+ reload();
 }
 
            //success function end here
        });//ajax call end here
 		}); //jquery end here
 		// console.log(map);
+
+		function reload(){
+			table.ajax.reload(null,false);
+		}
 	</script>
 </body>
 </html>
